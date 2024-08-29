@@ -5,12 +5,9 @@ export default function Index() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "black",
       }}
     >
-      <Text style={{ color: "white" }}>Hello World!</Text>
+      <Text style={{ fontSize: 24, fontFamily: "outfit-bold" }}>Hi there!</Text>
     </View>
   );
 }
