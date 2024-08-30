@@ -8,10 +8,10 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation, useRouter } from "expo-router";
-import { Colors } from "../../../constants/Colors";
+import { Colors } from "@/constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./../../../configs/FirebaseConfig";
+import { auth } from "@/configs/FirebaseConfig";
 
 export default function SignUp() {
   const navigation = useNavigation();
