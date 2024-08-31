@@ -68,6 +68,7 @@ export default function SelectTraveller() {
       </View>
 
       <TouchableOpacity
+        onPress={() => router.push("/create-trip/select-date")}
         style={{
           padding: 20,
           backgroundColor: Colors.PRIMARY,
