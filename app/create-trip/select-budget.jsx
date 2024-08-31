@@ -1,18 +1,19 @@
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, Text, FlatList, ToastAndroid } from "react-native";
 import { Colors } from "@/constants/Colors";
-import { CreateTripContext } from "@/context/CreateTripContext";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigation, useRouter } from "expo-router";
-import { useContext } from "react";
-import { SelectTripType } from "@/constants/Options";
+import { CreateTripContext } from "@/context/CreateTripContext";
+import { TouchableOpacity } from "react-native";
+import { SelectBudgetOptions } from "@/constants/Options";
 import OptionCard from "@/components/CreateTrip/OptionCard";
 
-export default function SelectTraveller() {
+export default function SelectBudget() {
   const navigation = useNavigation();
   const router = useRouter();
 
-  const [selectedOption, setSelectedOption] = useState(null);
   const { tripData, setTripData } = useContext(CreateTripContext);
+
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     navigation.setOptions({
@@ -30,6 +31,14 @@ export default function SelectTraveller() {
     console.log(tripData);
   }, [tripData]);
 
+  const onClickContinue = () => {
+    if (!selectedOption) {
+      ToastAndroid.show("Please select a budget", ToastAndroid.SHORT);
+      return;
+    }
+    // router.push('');
+  };
+
   return (
     <View
       style={{
@@ -46,16 +55,16 @@ export default function SelectTraveller() {
           marginTop: 16,
         }}
       >
-        Who's Travelling?
+        Budget
       </Text>
 
       <View style={{ marginTop: 20 }}>
         <Text style={{ fontFamily: "outfit-medium", fontSize: 20 }}>
-          Choose your trip type
+          Choose spending habits for your trips
         </Text>
 
         <FlatList
-          data={SelectTripType}
+          data={SelectBudgetOptions}
           renderItem={({ item, index }) => (
             <TouchableOpacity
               onPress={() => setSelectedOption(item)}
@@ -68,7 +77,7 @@ export default function SelectTraveller() {
       </View>
 
       <TouchableOpacity
-        onPress={() => router.push("/create-trip/select-date")}
+        onPress={onClickContinue}
         style={{
           padding: 20,
           backgroundColor: Colors.PRIMARY,

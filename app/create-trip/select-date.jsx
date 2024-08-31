@@ -41,6 +41,8 @@ export default function SelectDate() {
     const totalNoOfDays = endDate.diff(startDate, "days") + 1;
 
     setTripData({ ...tripData, startDate, endDate, totalNoOfDays });
+
+    router.push("/create-trip/select-budget");
   };
 
   return (

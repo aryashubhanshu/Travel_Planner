@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import React, { useContext, useEffect } from "react";
 import { useNavigation, useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
@@ -31,6 +31,16 @@ export default function SearchPlace() {
         backgroundColor: Colors.WHITE,
       }}
     >
+      <Text
+        style={{
+          fontSize: 30,
+          fontFamily: "outfit-bold",
+          marginTop: 16,
+        }}
+      >
+        Search Destination
+      </Text>
+
       <GooglePlacesAutocomplete
         placeholder="Search Destination"
         fetchDetails={true}
