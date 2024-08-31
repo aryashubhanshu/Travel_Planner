@@ -8,7 +8,7 @@ export const SelectTripType = [
   },
   {
     id: 2,
-    title: "A Couple",
+    title: "Couple",
     desc: "Two in love, two in adventure!",
     icon: "🥂",
     people: "2 People",

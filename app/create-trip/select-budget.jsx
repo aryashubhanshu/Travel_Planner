@@ -24,7 +24,8 @@ export default function SelectBudget() {
   }, []);
 
   useEffect(() => {
-    selectedOption && setTripData({ ...tripData, traveller: selectedOption });
+    selectedOption &&
+      setTripData({ ...tripData, budget: selectedOption?.title });
   }, [selectedOption]);
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function SelectBudget() {
       ToastAndroid.show("Please select a budget", ToastAndroid.SHORT);
       return;
     }
-    // router.push('');
+    router.push("/create-trip/review-trip");
   };
 
   return (
